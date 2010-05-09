@@ -8,11 +8,15 @@ namespace :sendmail do
     ActionMailer::ARSendmail.run(["-o"])
   end
 
-  desc "Send pending mails."
+  desc "Start ar_mailer daemon."
   task :start => :environment do
     ActionMailer::ARSendmail.run(["-d"])
   end
 
+  desc "Stop ar_mailer daemon."
+  task :stop => :environment do
+    system "kill `cat #{RAILS_ROOT+'/tmp/pids/ar_sendmail.pid'}`"
+  end
 
 end
 

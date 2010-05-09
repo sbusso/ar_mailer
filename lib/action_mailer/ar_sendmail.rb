@@ -147,7 +147,7 @@ class ActionMailer::ARSendmail
     options[:MaxAge] = 86400 * 7
     options[:Once] = false
     options[:RailsEnv] = ENV['RAILS_ENV']
-    options[:Pidfile] = options[:Chdir] + '/log/ar_sendmail.pid'
+    options[:Pidfile] = options[:Chdir] + '/tmp/pids/ar_sendmail.pid'
 
     opts = OptionParser.new do |opts|
       opts.banner = "Usage: #{name} [options]"
