@@ -2,10 +2,17 @@
 #require 'action_mailer/ar_sendmail'
 #task :environment
 
-namespace :ar_mailer do
+namespace :sendmail do
   desc "Send pending mails."
-  task :sendmail => :environment do
+  task :now => :environment do
     ActionMailer::ARSendmail.run(["-o"])
   end
+
+  desc "Send pending mails."
+  task :start => :environment do
+    ActionMailer::ARSendmail.run(["-d"])
+  end
+
+
 end
 
