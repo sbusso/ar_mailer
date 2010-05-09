@@ -14,7 +14,7 @@ Capistrano::Configuration.instance.load do
 
     desc "Start the ar_mailer process"
     task :start, :roles => :app do
-      run "cd #{current_path}; RAILS_ENV=#{rails_env} rake sendmail:star"
+      run "cd #{current_path}; RAILS_ENV=#{rails_env} rake sendmail:start"
     end
 
   end
