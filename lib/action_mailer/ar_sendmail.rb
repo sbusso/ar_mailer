@@ -424,7 +424,7 @@ class ActionMailer::ARSendmail
   # last 300 seconds.
 
   def find_emails
-    options = { :conditions => ['last_send_attempt < ?', Time.now.to_i - 300] }
+    options = { :conditions => ['last_send_attempt < ? and (send_on < ? or send_on is null)', Time.now.to_i - 300, Time.now] }
     options[:limit] = batch_size unless batch_size.nil?
     mail = ActionMailer::Base.email_class.find :all, options
 

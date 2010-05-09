@@ -1,1 +1,2 @@
-require 'lib/ar_mailer'
+require 'ar_mailer'
+require 'mail'
